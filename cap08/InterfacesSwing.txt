@@ -1,0 +1,140 @@
+ASSUNTO => Abordar AWT - ABSTRACT WINDOW TOOLKIT - que é um kit de desenvolvimento de interfaces gráficas para java
+           AWT foi substituido por swing que pertence à biblioteca JFC(JAVA FOUNDATION CLASSES), portanto swing é uma 
+           das classes AWT. 
+           Os métodos swing começam com "J" no começo do seu nome, "J"Optionpane ... "J"Button ... 
+
+As interfaces gráficas ajudam no desenvolvimento de GUI (Graphical User Interfaces)
+        - é necessário definir quais objetos serão utilzados dentro da interface e sua disposição dentro da tela do usuário
+        - definição de componentes que serão necessários em tela
+        - NETBRAINS e ECLIPSE oferecem ferramentas de design dessas interfaces gráficas
+
+CRIAÇÃO DE FRAMES -> a partir da classe JFrame dentro do swing package, em que gera um quadro com título e conteúdo dentro
+                     e pode ter outro componentes visuais(objetos)
+                  -> aplicação MDI (Multiple Document Interface) em todas as interfaces do sistema aparecem numa única tela, ou seja,
+                     cada aplicação será um painel a ser adicionado ao frame principal.
+    FUNCIONALIDADES DE CLASSES DO SWING PACKGE vv
+        JLabel -> permite definir um texto que pode ser usado em outro componente(objetos,frame,painel etc.).
+               -> permite também a introdução de imagens junto do texto
+               -> definição de várias propriedades para esse texto, tais como alinhamento, tipo de letra, tamanho, cor, fonte etc.
+               -> DECLARAÇÃO DO PACKAGE
+                        JLabel <nome-do-objeto> = new JLabel ("<TextoDoLabel>", JLabel.<alinhamento>);
+                  ex--->JLabel lbName = new JLabel("Nome: ",JLabel.RIGHT); 
+                        METODO                      FUNÇÃO
+                       1° JLabel()                      Cria um Label vazio(sem texto)
+                       2° JLabel(String)                Cria um Label com um texto dado
+                       3° JLabel(String,int)            Cria um Label com um texto e o alinhamento dos dados
+                       4° JLabel(String,Image)          Cria um Label com um texto e a imagem dos dados
+                       5° JLabel(String,Image,int)      Cria um Label com texto, imagem, e alinhamento dos dados
+                       6° getText()                     Obtem o texto de um Label
+                       7° setText()                     Seta um texto para o objeto JLabel(Especifica)
+
+        JTextField -> caixa de texto grafica que permite o usuário dar input num texto (textBox)
+                   -> DECLARAÇÃO DO PACKAGE
+                        JTextField <nome-do-objeto> = new JTextField();
+
+                       1° Igual JLabel
+                       2° Igual JLabel
+                       3° A unica diferença é em vez de alinhar, é feito com colunas
+                       4° JTextField(int)               Cria uma caixa de texto com qte de colunas especificadas
+                       5° getText()
+                       6° setText()
+                       7° isEditable()                  Verifica se o componente é editável ou não
+                       8° selectAll()                   Seleciona todo o texto
+                       9° setEditable(boolean)          Seta se o componente é editável ou não
+                       
+        JPasswordField -> caixa gráfica para senha em que o caracteres são substituidos por * afim de não mostrar a senha
+                       -> DECLARAÇÃO DO PACKAGE
+                            JPasswordField <nome-do-objeto> = new JPasswordField();     
+
+                       1° JPasswordField()              Igual aos outros
+                       2° JPasswordField(String)        Igual outros
+                       3° JPasswordField(int)           Qte de colunas especificadas
+                       4° getPassword()                 Obtem o texto do objeto, porém no tipo array do tipo char, sendo que cada um é armazenado num index do array      
+                       5° getEchoChar()                 Obtem o caractes usados na substituição dos caracteres digitados
+                       6° setEchoChar()                 Seta o caractere que esconde os chars da senha
+        
+        JButton -> botões gráficos
+                -> DECLARAÇÃO DO PACKAGE
+                        JButton <nome-do-objeto> = new JButton();
+
+                       1° Igual outros
+                       2° Button(String)                Botão com texto
+                       3° Button(String, Image)         Botão com texto e imagem 
+                       4° getText()                     Igual outros
+                       5° setText(String)               Especifica o texto do botão
+                       6° setEnabled(boolean)           Define se o botão está habilitado(true) ou desabilitado(false)
+                       7° setHorizontalTextPosition()   Define o tipo de alinhamento horizontal do texto em relação a imagem, assume LEFT ou RIGHT
+                       8° setMnemonic(char)             Define uma letra que será usada como acionadora do evento clique, em conjunto com a tecla ALT
+                       9° setToolTipText(String)        Possibilita atrelar uma mensagem ao botão. Quando um ponteiro do  
+
+
+EVENTOS -> os eventos podem ser ouvidos pelos métodos ActionListener e ActionEvent
+        -> ActionListener = serve para "ouvir o evento", ou seja, ele grava o que foi feito e em que momento foi feito, para dar gatilho(ActionEvent) em algum evento codado
+        -> ActionEvent = serve para ser um receptor de eventos -> ele é o gatilho do ActionListener, que vai receber o que foi feito
+
+BARRA DE MENU -> antes de adicionar os menus, necessita-se de ter uma NAVBAR no topo do programa para que assim, possa adicionar o menu
+              -> essa NAVBAR é feita da seguinte forma: 
+                JMenuBar <nome-da-barra> = new JMenuBar();
+
+                        **DEFININDO A BARRA DE MENUS COMO O PADRÃO:
+                setJMenuBar(<nome-da-barra>);
+
+                        **utilizar JMenu para criar o menu
+                JMenu <nome-do-menu> = new JMenu();
+                
+                        **utilizar o .add para adicionar o menu
+                <nome-da-barra>.add(<nome-do-menu>);
+                
+                        **utilizar JMenuItem para adicionar um item no menu
+                JMenuItem <nome-do-item> = new JMenuItem();
+
+                        **para dicionar o item no menu
+                <nome-do-menu>.add(<nome-do-item>);
+
+INCLUSÃO DE PAINEIS E BOTÕES -> um painel é um container, ou seja, um componente que abriga outros componentes
+                             -> para a sua manipulação, é usado JPanel
+                             -> para dicionar uma imagem a um botão se usa o método ImageIcon
+                                *** ImageIcon <nome-do-objeto> = new ImageIcon(<caminho-da-imagem>);
+                             -> substituição da barra invertida "\" para normal "/" no caminho de diretório
+                             -> METODOS DA INTERFACE MouseListener para o evento MouseEvent
+                                *mousePressed -> executado quando o mouse é pressionado sobre um componente
+                                *mouseClicked -> executado quando o botão do mouse é solto sobre um componente
+                                *mouseEntered -> executado quando o cursor entra numa determinada área
+                                *mouseExited -> executado quando o cursor sai de um determinada área
+                                *mouseReleased -> executado quando o o mouse é solto sobre um componente
+                             
+INCLUSÃO DE CAIXAS DE OPÇÕES -> criadas a partir de uma classe JCheckBox, que representam uma função boolean
+                       1° JCheckBox(String)             Cria um checkbox com o texto especificado e com uma opção não selecionada
+                       2° JCheckBox(String, boolean)    checkbox com texto e estado especificado com a seleção definida em boolean
+                       3° getStateChange()              Obtém o estado do checkbox, retornado true ou false
+                       4° setSelected(boolean)          Especifica o estado do checkbox: true marca a caixa, false desmarca
+
+INCLUSÃO DOS BOTÕES DE RÁDIO -> JRadioButton, permitem que só uma opção seja aceita pelo programa
+                             -> devem ser agrupados em ButtomGroups
+                             -> o usuário pode só selecionar uma opção dentro dos grupos
+                             -> caso seja feito em ButtomGroups diferentes, ele podera aceitar mais de um input
+                             -> funciona da mesma forma de JCheckBox
+                       1° JRadioButton(String)
+                       2° JRadioButton(String, boolean)
+                       3° setSelected(boolean)
+                       4° ButtomGroup()
+                       5° <nomedogrupo>.add()
+
+INCLUSÃO DE LISTAS DE SELEÇÃO -> possibilitam a escolha de um ou vários valores armazenados em uma lista de opções
+                              -> lista é manipulada a partir da classe JList
+                              -> para melhor otimização de tempo e do sistema se utiliza a seguinte sequencia:
+                                        *DECLARAR UM OBJETO E INSTANCIAR A CLASSE JList
+                                        *DECLARAR UM OBJETO QUE CONTERÁ A LISTA DAS OPÇOES E ADICIONAR A ELE TODAS AS FUNÇÕES
+                                        *INICIALIZAR  OBJETO DO PRIMEIRO ITEM
+                                        *CRIAR UM PAINEL DE ROLAGEM
+                                        *ADICIONAR O OBJETODO PRIMEIRO ITEM AO PAINEL DE ROLAGEM  
+                       1° JList()
+                       2° getSelectedValue()
+                       3° getSelectedIndex()
+                       4° setSelectedIndex(int) //int-> valor do index
+                       5° setSelecetedInterval(int,int)
+                       6° isSelectionEmpty()            verifica se existe algum item selecionado na lista retorna boolean
+                       7° isSelectedIndex(int)          verifica se o indice especificado está selecionad retorna boolean
+
+
+

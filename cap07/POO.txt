@@ -1,0 +1,173 @@
+UML -> Unified Modeling Language "lingugaem de modelagem" , representa certas características do software, apresentando
+sua relação com OO ou POO 
+
+OBJETO (OBJECT) -> é uma abstração dos objetos reais. Por exemplo, em uma sala de aula se tem diversos tipos de objetos
+o, alunos, carteiras, lousa, cadeiras etc. Caso fosse necessário manter controle sobre esses objetos, um software usaria a 
+POO para manipular o objeto dentro de um espaço abstrato.
+Uma conta bancária, por exemplo, teria propriedades para a conta como: saldo, n° da conta, cliente etc. Associando as propri
+edades pode-se visualizar as ações que podem ser realizadas com ele.
+
+CONTA BANCÁRIA:
+    -numeroDaConta;
+    -nomeDoCliente;
+    -numeroCPF;
+    -statusConta;
+        *BLOQUEADA
+        *DESBLOQUEADA
+    .
+    .
+    .
+    Cada objeto, independente do tipo, compartilham duas características principais: todos possuem ESTADO (conjunto de
+propriedades do objeto) e um comportamento (as ações sobre o objeto)
+
+as ações da conta seriam -> depositar, sacar, consultar etc.
+
+os comportamentos do objeto são definidos pelo conjunto de métodos que ele possui
+
+a criação de uma classe deve anteceder a de um objeto, uma vez que este é criado a partir daquela.
+
+conceitos de visibilidade -> public e private  
+-public -> livremente usado por qualquer classe do mesmo pacote ou de outro. -- PACKAGE nada mais é que um diretório --
+            quando com public tem que criar a classe com o mesmo nome do arquivo java.
+-private -> conteúdo da classe é privado, usado apenas por classes no mesmo package
+
+CLASSE DEVE COMEÇAR COM LETRA MAISCULA
+
+UML os metodos são chamados de operações --> na UML a declaração é feita de um modo diferente
+
++ aumentarVolume():void
+respectivamente ==> muda a ordem de declaração
+public void aumentarVolume()
+
+-declaração do objeto -> nome-da-classe nome-do-objeto
+                        Televisor televisor1  // diferenciação de classe
+-instaciação do objeto -> alocação de memória para a criação do objeto
+                        nome-do-objeto = new(inicialização-do-objeto)
+-inicialização do objeto -> inicia-se com o método construtor - new -(como default usado com nome da classe)
+                        quando as variaveis não tem um valor previamente declarado, a variavel fica com: "0" numerico,
+                        "false" boolean e "null" objetos.
+                        nome-da-classe nome-do-objeto = new nome-do-construtor();
+                        Televisor televisor1 = new nome-do-construtor();
+
+ESCOPOS -> existe tanto pra atributos quanto para metodos... cada objeto mantem um conteudo diferente para um mesmo
+        atruibuto da classe. mas para todos os objetos da classe a variavel pode conter o mesmo conteudo, essa caracteristica
+        faz com que a propria classe tome conta dos objetos, e não eles individualmente. Só se consegue usar essa ação a partir
+        do momento em que se coloca STATIC na instanciação da classe
+
+MENSAGENS ENTRE OBJETOS -> normalmente, na vida real, um sistema necessita que um objeto precise realizar uma tarefa que
+                            ja está definida em outro objeto, ou seja, numa aplicação pode se ter a conversa e a interação
+                            entre dois(ou mais) objetos por meio de mensagens.
+                            "X PODE NECESSITAR DE UMA TAREFA QUE É REALIZADA EM Y" o que acontece??
+                            -> acontece que o objeto x solicita ao objeto y que execute o método
+                            *O VALOR DE RETORNO SERÁ PARA X CERTO?* sim, porque ele executa o método do objeto Y usando
+                            os dados que foram recebidos do X --> volta para X, caso tenha VOID n volta nenhum valor
+
+ENCAPSULAMENTO ----DATA HIDDING---- -> restringe o acesso a variaveis e metodos da classe(ou ate a propria classe)
+                                    -> os detalhes da implementação ficam ocultos ao usuário da classe, ou seja, o 
+                                    usuário passa a utilizar os serviços da classe sem saber como isso ocorre internamente.
+                                    é disponibilizado somente uma lista com as funcionalidades existentes. (pode ser conhecido
+                                    como acessibilidade -> define o que esta acessivel);
+                                    -> torna o código mais legivel, minimiza os erros de programação, restringir o conteudo 
+                                    das variaveis, facilitar a ampliação do código em função de novas atualizações.
+                                    -> a determinação do nivel do acesso se da pelos modificadores/qualificadores de acesso:
+                                        *public -> sem restrições (equivale a n encapsular)
+                                        *private -> maior restrição, apenas a propria classe pode ter acesso às variaveis/metodos
+                                        *protected -> +- restrito, variaveis/metodos podem ser acessados pela propria classe ou subclasses
+                                        *package -> somente classes do mesmo package(diretorio) podem acessar as variaveis/metodos.
+                                    -> ajuda na proteção e integridade de valores e dados.
+                                    -> os conteudos são acessados pelos metodos publicos get e set
+
+PLAVRA RESERVADA THIS -> this faz referencia ao objeto(objeto corrente) que chamou o metodo 
+OPERADOR NEW (construtores) -> new é responsavel pela instaciação do objeto, de tal forma que a declaração pode ser lida da seguinte forma:
+                                **construa um objeto x do tipo X com valores default --> "X x = new X" -- se o construtor não for declarado
+                                o objeto automaticamente pega valores default // deve sempre possuir o mesmo nome da classe
+                            -> responsavel por alocar espaço na memória para manipular o objeto
+                            -> o metodo é responsável por construir um objeto com determinados valores 
+                            -> na criação de janelas graficas(frames) o metodo constructor pode definir todas as propriedades dos componentes
+                            visuais do frame(cor do formulario, tamanho dos botoes etc).
+
+DECONSTRUTORES (FINALAZERS) -> são responsaveis por liberar os recursos usados pelos objetos durante a execução do programa
+                            -> liberam o espaço na memória usado.
+                            -> passa uma borracha nos endereços de memória alocados para o objeto em questão
+                            -> libera para que outros objetos ou outros sistemas possam usar aquele espaço da memória 
+                            -> feito automaticamente por automatic garbage collection
+
+DEFINIÇÃO DE PACKAGES -> resumidamente um diretorio que tem um conjunto de classes
+                      -> classes com mesmo proposito/afinidade são armazenadas juntas
+                      -> exemplos de pacotes do proprio JAVA: awt, beans, io, lang, math, net, rmi etc 
+                      -> quando o package não é especificado, ele pertence ao pakage default, ou seja, na propria pasta
+                      na qual a classe foi salva
+
+DIRETIVA IMPORT -> import nome-do-pacote.nome-da-classe;
+                -> "*" especifica todas as classes de uma vez só
+                -> especifica somente as classes de um diretorio, caso tenha subdiretorios
+                (subpacotes) não é visualizado pelo *
+                -> import java.util.Date; a letra maiscula diferencia o nome da classe do pacote
+                -> import java.io.*; qualquer classe do java.io
+
+INHERITENCE (HERANÇA) -> ocorre quando uma classe herda caracteristicas(metodos e variaveis)
+                      -> definidas em outras classes, especificada como sua anccestral ou superclasse
+                      -> compartilhamento e reaproveitamento de recursos definidos antes e em outras classes
+                      -> FORNECE RECURSO => SUPERCLASSE /// RECEBE RECURSO => SUBCLASSE
+                      -> TODAS AS CLASSES DO JAVA HERDAM, RECEBEM RECURSOS DA CLASSE OBJECT
+                      -> uma classe estende por meio da palavra extends a funcionalidade da SUPERCLASSE
+                      public class nome-da-subclasse extends nome-da-superclasse
+                      -> herda as funcionalidades e pode adicionar novas funcionalidades
+                      -> caso a superclasse tenha mudanças, afeta a todas as subclasses a ela atrelada
+                      -> pode se acessar os recursos da superclasse por meio do metodo super.metodo, mesmo que seja uma subclasse.
+
+       ESPECIALIZAÇÃO -> uma classe que herda caracteristicas de outras, pode implementar partes especificas
+                      nao contempladas na classe original, tornando especilizada em algum processo
+                      -> ocorre quando se tem uma especie de nesting de classes
+                      CLASS-1(SUPERCLASSE) CLASS-2(subclasseDeClass-1/subclasseDeClass-3) CLASS-3(SUBCLASSE DE AMBAS)...
+                      -> qualquer alteracao nas classes superiores irá afetar as ligações
+                      -> public **FINAL** , o final "não deixa" com que a classe seja utilizada como SUPERCLASSE
+
+POLIMORFISMO -> mecanismo de generalização
+             -> o contrário da hierarquia das classes apresentada na herança
+             -> pode gerar econimia de recursos computacionais (RAM,CPU,ARMAZENAMENTO ETC)
+             -> possue duas condições para que possa ser utilizado 1) existência entre as classes/ 2) redefinição de métodos em todas as classes
+             -> as classes devem ter metodos com a mesma assinatura(nome e parametros), porém com funcionalidades diferentes
+             -> 2) a redefinição é conhecida como overriding =/= overloading
+
+GRAVAÇÃO E LEITURA DE OBJETOS -> orientação a objetos dentro de banco de dado DB40
+                              -> exemplos POOComDados (file)
+
+CLASSES ABSTRATAS E CONCRETAS -> ABSTRATA ==> NAÕ PERMITE GRAVAÇÃO DE INSTANCIAS A PARTIR DELA
+                              -> não permite a criação de objetos 
+                              -> serve de base para elaboração de outras classes
+                              -> public abstract class Pessoa{ corpo da classe com o código }
+                              -> para indicar que a classe é abstrata na UML, a classe tem o nome em italico
+
+                              ERROS E ACERTOS:
+                                ERROS -> Pessoa pessoa = new Pessoa(); //causa erro de compilação
+                                ACERTOS -> PessoaFisica pf = new PessoaFisica();                             
+                                ACERTOS -> PessoaJuridica pj = new PessoaJuridica(); // ambos compilados normalmente
+
+                              
+                              -> CONCRETA ==> PERMITE A GRAVAÇÃO DE INSTANCIAS A PARTIR DELA        
+
+                              -> "@Override"NOTATION OVERRIDE ==> faz com que garanta que você está sobrescrevendo um método e não criando um novo
+                                                              ==> no caso, se um dia mudar o nome do método da superclasse, o Override vai detectar
+                                                              que não existe um método com aquele nome dentro da superclasse exemplo
+
+                                public class SuperClass{
+                                    public void imprime(){
+                                        System.out.println("imprime");
+                                    }
+                                } // caso o método da SuperClass seja mudado para imprimir, o Override não vai simplesmente criar um novo método
+                                  // e sim acusar que o método anteriormente colocado na linha, foi mudado dentro da SuperClass
+                                public class MyClass exteds SuperClass{
+                                    @Override
+                                    public void imprime(){
+                                        System.out.println("imprime diferente");
+                                    }
+                                }
+
+INTERFACES -> permite estabelecer uma espécie de contrato entre as classes, em que funciona de maneira similar
+           as classes abstratas, porém não permite a implementação de nenhum método, contendo apenas a especificação deste
+           -> EXEMPLO DE CODIFICAÇÃO DE UMA INTERFACE ==> public interface Teste{corpo do código}
+           -> a palavra interface no lugar de class, porém é salvo da mesma forma que uma classe
+           -> ela contem somente as especificações dos métodos, sem nenhuma implementação.
+           -> garante que uma classe dê determinados serviços para outras
+

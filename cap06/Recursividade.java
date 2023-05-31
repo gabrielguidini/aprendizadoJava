@@ -1,0 +1,18 @@
+package cap06;
+
+public class Recursividade {
+    public static void main(String[] args) {
+        for(long i =0;i<=10;i++){
+            System.out.println(i+ "! = "+ calcularFatorial(i));
+        }
+    }
+    public static long calcularFatorial(long num){
+        if(num<=1){
+            return(1);
+        } else{
+            return (num*calcularFatorial(num-1)); // num tem como valor o ultimo calculado
+            // 24*5 = 120 (...), logo, 
+        }
+    }
+    
+}
