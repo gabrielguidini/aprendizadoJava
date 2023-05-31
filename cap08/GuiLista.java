@@ -29,11 +29,11 @@ public class GuiLista extends JPanel {
 
         btBomba.setToolTipText("BombaPatch2014 que faz Calculo");
         btBomba.setMnemonic(KeyEvent.VK_C);
-        lbValue.setBounds(10,10,100,120);
-        tfValue.setBounds(10,20,100,120);
-        spList.setBounds(10,30,100,120);
-        tfDiscountValue.setBounds(10,40,100,120);
-        btBomba.setBounds(20,65,100,35);
+        lbValue.setBounds(35,05,100,25);
+        tfValue.setBounds(35,30,100,25);
+        spList.setBounds(35,60,100,55);
+        tfDiscountValue.setBounds(35,120,90,25);
+        btBomba.setBounds(35,150,100,25);
 
         add(btBomba);
         add(lbValue);

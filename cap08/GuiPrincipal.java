@@ -92,6 +92,14 @@ public class GuiPrincipal extends JFrame{
                 contentPane.validate();
             }
         });
+        miAio.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                GuiLista guiLista = new GuiLista();
+                contentPane.removeAll();
+                contentPane.add(guiLista);
+                contentPane.validate();
+            }
+        });
     }
     public static void abrir(){
         GuiPrincipal frame = new GuiPrincipal();
