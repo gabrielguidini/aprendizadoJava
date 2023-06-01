@@ -1,0 +1,14 @@
+1.	a) Oracle
+	b) 
+	c) extensão .java
+	d) 
+2. class
+3. d.
+4. faz com que os programas feitos em linguagens multiplataforma possam ser executados em todo tipo de dispositivos.
+5. a.
+6. c.
+7. 
+8. feito.
+9. lê e analisa o código, gerando um código que converse em binário com a máquina que irá executar
+10. d.
+
