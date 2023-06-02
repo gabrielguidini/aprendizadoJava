@@ -140,5 +140,32 @@ RESUMO DOS MÉTODOS MAIS UTILIZADOS DA CLASSE DefaultListModel() -> declara um o
                        1° addElement(String)            adiciona o texto como um nvo item da lista
                        2° getSize()                     quantidade total de itens da lista
                        3° remove(int)                   remove o item do indice especificado
-                       
+
+INCLUSÃO DOS JComboBox -> funciona da mesma forma que JList, ou seja, permite a seleçao de um ou mais items. A diferença esta nos METODOS
+                       ->
+
+                       1° JComboBox(String)
+                       2° addItem(String)
+                       3° getSelectedItem()
+                       4° getItemCount()
+                       5° getSelectedIndex()
+                       6° removeItemAt(int)             Remove o item com o indice especificado
+                       7° removeAllItems()
+
+INCLUSÃO DE ÁREAS DE TEXTO -> gerados a partir da classe JTextArea, semelhantes a JTextBox, porém permitem manipular diversas linha de texto ao mesmo tempo
+                           -> o método contrutor é: JTextArea(<String>, <n° de linhas iniciais>, <dimensão>)
+                                *em que String é um texto inicial qualquer que pode ser definido para o objeto no momento de sua criação
+                                *n° de linhas inicias é um valor inteiro que especifica o numero de linhas que a área de texto apresentará na tela
+                                *dimensão especifica um valor inteiro que será a dimensão da área de texto(NUMERO DE CARACTERES)
+                       1° JTextArea()
+                       2° JTextArea(int,int)
+                       3° JTextArea(String)
+                       4° JTextArea(String,int,int)
+                       5° getColumns()
+                       6° getRows()
+                       7° getSelectedText()
+                       8° insert(String, int)                   insere a String especificada na posição indiacada por uma variável inteira
+                       9° replaceRange(String,int,int)          substitui o texto fornecido na variavel string pelo texto contigo entre as posições definidas
+                       10° setText(),getText(), setEditable()
+                       11° setColumns(), setRows
 

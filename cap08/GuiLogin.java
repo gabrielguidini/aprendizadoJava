@@ -51,6 +51,7 @@ public class GuiLogin extends JFrame{
     public void definirEventos(){
         btLogar.addActionListener(new ActionListener() { // pode se comparar com a função addEventListener do JS
             public void actionPerformed(ActionEvent e){
+                
                 String senha = String.valueOf(pfSenha.getPassword());    
                 if(tfLogin.getText().equals("teste")){
                     if(senha.equals("123")){

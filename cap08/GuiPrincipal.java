@@ -9,7 +9,8 @@ public class GuiPrincipal extends JFrame{
     private Container contentPane;
     private JMenuBar mnBarra;
     private JMenu mnArquivo, mnExemplos, mnMrbombatic, mnPhotos;
-    private JMenuItem miSair, miBotao, miBombastic,miCaixa, miRadio,miAio,miIxi;
+    private JMenuItem miSair, miBotao, miBombastic,miCaixa,
+    miRadio,miAio,miIxi,miOlhaPedra,miTextoArea;
 
     public GuiPrincipal(){
         inicializarComponentes();
@@ -18,7 +19,7 @@ public class GuiPrincipal extends JFrame{
 
     public void inicializarComponentes(){
         setTitle("opa opa meu parceiro");
-        setBounds(0, 0, 800, 600);
+        setBounds(40, 40, 500, 350);
         contentPane = getContentPane(); // especie de uma capa para colocar frames dentro do JFrame principal
         mnBarra = new JMenuBar();
         
@@ -43,18 +44,29 @@ public class GuiPrincipal extends JFrame{
 
         miIxi = new JMenuItem("Fotinhas legais");
 
+        miOlhaPedra = new JMenuItem("CHAMA CHAM AAA QUALÉ QUE É");
+
         
         miBotao = new JMenuItem("Botao");
         miCaixa = new JMenuItem("Caixa Opção");
         miRadio = new JMenuItem("BombaPatch 2016");
+        miTextoArea = new JMenuItem("JTextArea");
+
+
         mnExemplos.add(miBotao);
-        mnMrbombatic.add(miAio);
-        mnPhotos.add(miIxi);
         mnExemplos.add(miRadio);
         mnExemplos.add(miCaixa);
-        mnArquivo.add(miSair);
         mnExemplos.add(miSair);
+
+        mnArquivo.add(miSair);
         mnArquivo.add(miBombastic);
+        
+        mnMrbombatic.add(miAio);
+        mnMrbombatic.add(miOlhaPedra);
+        
+        mnPhotos.add(miTextoArea);
+        mnPhotos.add(miIxi);
+        
         mnBarra.add(mnArquivo);
         mnBarra.add(mnExemplos);
         mnBarra.add(mnMrbombatic);
@@ -114,13 +126,29 @@ public class GuiPrincipal extends JFrame{
                 contentPane.validate();
             }
         });
+        miOlhaPedra.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                GuiComboBox guiComboBox = new GuiComboBox();
+                contentPane.removeAll();
+                contentPane.add(guiComboBox);
+                contentPane.validate();
+            }
+        });
+        miTextoArea.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                GuiAreaDeTexto guiAreaDeTexto = new GuiAreaDeTexto();
+                contentPane.removeAll();
+                contentPane.add(guiAreaDeTexto);
+                contentPane.validate();    
+            }
+        });
     }
     public static void abrir(){
         GuiPrincipal frame = new GuiPrincipal();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Dimension tela = Toolkit.getDefaultToolkit().getScreenSize();
         frame.getContentPane().add(new GuiBotao());
-        frame.setBounds(50, 50, 500, 300);
+        frame.setBounds(50, 50, 600, 200);
         frame.setLocation ((tela.width - frame.getSize().width)/2,
                             (tela.height - frame.getSize().height)/2);
         frame.setVisible(true);
