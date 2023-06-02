@@ -58,6 +58,7 @@ public class GuiPrincipal extends JFrame{
         mnBarra.add(mnArquivo);
         mnBarra.add(mnExemplos);
         mnBarra.add(mnMrbombatic);
+        mnBarra.add(mnPhotos);
         setJMenuBar(mnBarra);
     }
 
@@ -108,6 +109,9 @@ public class GuiPrincipal extends JFrame{
         miIxi.addActionListener(new ActionListener() {
             public void actionPerformed( ActionEvent e){
                 GuiListaComFotos guiListaComFotos = new GuiListaComFotos();
+                contentPane.removeAll();
+                contentPane.add(guiListaComFotos);
+                contentPane.validate();
             }
         });
     }

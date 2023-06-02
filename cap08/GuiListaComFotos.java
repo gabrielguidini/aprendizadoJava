@@ -34,7 +34,7 @@ public class GuiListaComFotos extends JPanel{
      private void definirEventos(){
         lsPhotos.addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent e){
-                imageIcon = new ImageIcon("Imagens/"+lsPhotos.getSelectedValue()+".gif");
+                imageIcon = new ImageIcon("C:/Uers/gsgui/OneDrive - Univille/CURSOS/java/cap08/Imagens"+lsPhotos.getSelectedValue()+".png");
                 lbImagem.setIcon(imageIcon);
             }
         });
