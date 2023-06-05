@@ -10,7 +10,6 @@ public class GuiListaComFotos extends JPanel{
     private ImageIcon imageIcon;
     private JScrollPane sp;
     private JLabel lbImagem;
-
     public GuiListaComFotos(){
         inicializarComponentes();
         definirEventos();
@@ -30,7 +29,6 @@ public class GuiListaComFotos extends JPanel{
         add(sp);
         add(lbImagem);
      }
-
      private void definirEventos(){
         lsPhotos.addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent e){
