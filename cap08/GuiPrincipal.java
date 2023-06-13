@@ -6,11 +6,11 @@ import java.awt.event.*;
 
 
 public class GuiPrincipal extends JFrame{
-    private Container contentPane;
+    private JDesktopPane contentPane;
     private JMenuBar mnBarra;
     private JMenu mnArquivo, mnExemplos, mnMrbombatic, mnPhotos;
     private JMenuItem miSair, miBotao, miBombastic,miCaixa,
-    miRadio,miAio,miIxi,miOlhaPedra,miTextoArea;
+    miRadio,miAio,miIxi,miOlhaPedra,miTextoArea,miProgress;
 
     public GuiPrincipal(){
         inicializarComponentes();
@@ -20,7 +20,8 @@ public class GuiPrincipal extends JFrame{
     public void inicializarComponentes(){
         setTitle("opa opa meu parceiro");
         setBounds(40, 40, 500, 350);
-        contentPane = getContentPane(); // especie de uma capa para colocar frames dentro do JFrame principal
+        //contentPane = getContentPane();
+        contentPane = new JDesktopPane(); // especie de uma capa para colocar frames dentro do JFrame principal
         mnBarra = new JMenuBar();
         
         mnArquivo = new JMenu("Arquivo");
@@ -50,6 +51,7 @@ public class GuiPrincipal extends JFrame{
         miBotao = new JMenuItem("Botao");
         miCaixa = new JMenuItem("Caixa Opção");
         miRadio = new JMenuItem("BombaPatch 2016");
+        miProgress = new JMenuItem("ProgressBar");
         miTextoArea = new JMenuItem("JTextArea");
 
 
@@ -57,6 +59,7 @@ public class GuiPrincipal extends JFrame{
         mnExemplos.add(miRadio);
         mnExemplos.add(miCaixa);
         mnExemplos.add(miSair);
+        mnExemplos.add(miProgress);
 
         mnArquivo.add(miSair);
         mnArquivo.add(miBombastic);
@@ -140,6 +143,14 @@ public class GuiPrincipal extends JFrame{
                 contentPane.removeAll();
                 contentPane.add(guiAreaDeTexto);
                 contentPane.validate();    
+            }
+        });
+        miProgress.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                GuiProgressBar guiProgressBar = new GuiProgressBar();
+                contentPane.removeAll();
+                contentPane.add(guiProgressBar);
+                contentPane.validate();
             }
         });
     }

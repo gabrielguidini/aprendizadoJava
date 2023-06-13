@@ -169,3 +169,98 @@ INCLUSÃO DE ÁREAS DE TEXTO -> gerados a partir da classe JTextArea, semelhante
                        10° setText(),getText(), setEditable()
                        11° setColumns(), setRows
 
+INCLUSÃO CAIXAS DE DIALOGO -> showMessageDialog // showInputDialog // showConfirmDialog // showOptionDialog
+         showMessageDialog(Component, Message, MessageTitle, MessageType)
+         *Component -> refere-se a um objeto do tipo container que define a posição na tela (normalmente é deixado como null "default")
+         *Message -> a mensagem que irá aparecer na caixa
+         *MessageTitle -> titulo que irá aparecer na caixa
+         *MessageType -> tipo da mesagem apresentada ao usuário
+                ==> PERGUNTA                            QUESTION_MESSAGE
+                ==> INFORMAÇÃO                          INFORMATION_MESSAGE
+                ==> ALERTA                              WARNING_MESSAGE
+                ==> ERRO                                ERROR_MESSAGE
+                ==> DEFINIDO PELO USUÁRIO               INFORMATION_MESSAGE,<icone>
+                ==> VAZIO(SOMENTE MENSAGEM)             PLAIN_MESSAGE
+
+         showConfirmDialog(Component,Message,MessageTitle,botõesPresentes,MessageType)
+          *esse método tem como retorno default um valor inteiro para a resposta, logo, na sua declaração
+          deve-se guardar o valor da resposta em uma variável 
+          int resposta = JOptionPane.showConfirmDialog("...");
+          *YES_OPTION = 0 / NO_OPTION = 1 / CANCEL_OPTION = 2
+         
+         showOptionDialog(null, Message,MessageTitle,botõesPresentes,icone,arrayDeObjetos,selecaoPadrão)
+         *botõesPresentes tipo de caixa que utiliza variaveis para sim,não e cancelar.
+         *icone objeto do tipo ImageIcon a ser apresentado no lugar dos icones do argumento anterior
+         *objetos representam as escolhas feitas na caixa de dialogo
+         *selação padrao é a representação em objeto caso não sejam usadas as opções YES_NO_OPTION
+
+INCLUSÃO BARRA DE ROLAGEM -> compoentes que possibilitam o controle com valores numéricos (máx e min)
+                          -> pode-se trabalhar com elas de 3 formas diferentes
+                                *setas nas extremidades -> são utilizadas para incrementar/decrementar valores de pequena qte(de um em um por default)
+                                *intervalo no meio -> incrementar/decrementar valores em uma quantidade maior(10 em 10 default)
+                                *caixa no meio -> mostra onde o valor corrente está localizado dentro do intervalo dos valores
+                          -> JScrollBar(<orientação>,<valor inicial>,<intervalo do meio>,<val min>,<val max>)
+                          *orientação ==> horizontal = 0 / vertical = 1
+                                pode ser definida pelas constantes -> JScrollBar.HORIZONTAL // JScrollBar.VERTICAL
+                          *valor inicial ==> deve ser numero do tipo int, compreendido entere o min e o max
+                          *intervalo do meio ==> incremento/decremento quando clicado na área
+                          *val min ==>  valor minimo inteiro da rolagem
+                          *val max ==> valor maximo da rolagem
+                JScrollBar(int,int,int,int,int)
+                getMaximum() // getMinimum() // setMaximum(int) // setMinimum(int)
+                getOrientation() // setOrientation(int)
+                getValue() // setValue(int)
+                getUnitIncrement() // setUnitIncrement(int)
+                getBlockIncrement() // setBlockIncrement(int)
+
+INCLUSÃO DE BARRA DE PROGESSO -> JProgressBar == barra de progresso para determinada ação
+                              -> MÉTODOS
+                                   *getMaximum()
+                                   *getMinimum()
+                                   *getValue()
+                                   *setMaximum(int)
+                                   *setMinimum(int)
+                                   *setValue(int)
+
+LAYOUT MANAGER -> função de definir o layout a ser usado num componente gráfico, como painel ou frame
+               -> permite dividir o componente em regiões que terá outros componentes.
+               -> FlowLayout nesse manager ele insere os componentes da esquerda para direita, quando fica sem espaço na linha ele cria outra
+                  automaticamente de acordo com o tamanho da janela do componente
+                        *setLayout(new FlowLayout(ALINHAMENTO,ESPACAMENTO_HORIZONTAL,ESPACAMENTO_VERTICAL));
+                        ALINHAMENTO -> 0 = esquerda / 1 = centralizado / 2 = direita // quando não especificado é posto por default 0
+                        ESPACAMENTO_HORIZONTAL -> distância dada entre os objetos inseridos na mesma linha, default = 5
+                        ESPACAMENTO_VERTICAL -> distância entre linhas, default = 5
+               -> GridLayout insere os componentes em um conjunto de células espalhadas numa grade retangular, todas com mesma dimensão
+                  Qualquer modifcação reflete em todas as outras janelas.
+                        *setLayout(new GridLayout([NUMERO_DE_LINHAS,NUMDERO_DE_COLUNAS,ESPACAMENTO_HORIZONTAL,ESPACAMENTO_VERTICAL]));
+                        NUMERO_DE_LINHAS -> refere-se a quantidade de linhas que a grade conterá. Caso não especificado = 1
+                        NUMDERO_DE_COLUNAS -> quantidade de colunas da grade. Caso não especificado = 1
+               -> BorderLayout divide uma janela em cinco regiões: north, south, west, east, center. A ordem é irrelevante
+               diferentemente dos outros gerenciadores 
+                        *setLayout(new BorderLayout([ESPACAMENTO_HORIZONTAL,ESPACAMENTO_VERTICAL]))
+                        add("North",btNorth);
+                                (...)
+
+INCLUSÃO DE ABAS -> adiciona guias/abas agrupando várias telas num componente só JTabbedPane
+                MÉTODOS
+                JTabbedPane()
+                JTabbedPane(int)                        .TOP / .BOTTOM / .LEFT / .RIGHT
+                addTab(String, Component)               adiciona componente com titulo da aba fornecido
+                addTab(String, Icon, Component)         com icone
+                getSelectedIndex()                      retorna um numero int referente ao indice da aba selecionada
+                getTabCount()                           retorna o num int referente à quantidade de abas existentes
+                remove(int)                             remove a aba e os componentes dela no indice fornecido
+                removeAll()                             remove todas as abas e seus componentes
+                setSelectedIndex()                      seleciona a aba correspondente ao indice fornecido
+                
+INCLUSÃO DE FRAMES INTERNOS -> Funciona da mesma forma que um JFrame só que internamente a um JFrame
+                            -> precisa setar o tamanho ou bounds setSize / setBounds
+                            -> precisa ser adicionado a um container (JDesktopPane)
+                MÉTODOS
+                JInternalFrame()                                
+                JInternalFrame(String)
+                JInternalFrame(String, bool, bool, bool, bool)  redimensionamento,botão fechar,botão máximizar,botão minumizar
+                setClosable(boolean)
+                setIconfiable(boolean)
+                setResizable(boolean)
+                show()
