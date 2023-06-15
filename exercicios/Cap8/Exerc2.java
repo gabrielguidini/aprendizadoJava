@@ -16,7 +16,14 @@ public class Exerc2 extends JFrame{
     private ImageIcon imageIcon;
     private JPanel panel;
     private JComboBox paisesBox;
-
+    private String [] imagens = new String[]{
+        "C:/Users/gsgui/OneDrive - Univille/CURSOS/java/exercicios/Cap8/bombaimagem/1.png", // ALE
+        "C:/Users/gsgui/OneDrive - Univille/CURSOS/java/exercicios/Cap8/bombaimagem/2.png", // BRA
+        "C:/Users/gsgui/OneDrive - Univille/CURSOS/java/exercicios/Cap8/bombaimagem/3.png", // CHI
+        "C:/Users/gsgui/OneDrive - Univille/CURSOS/java/exercicios/Cap8/bombaimagem/4.png", // ESP
+        "C:/Users/gsgui/OneDrive - Univille/CURSOS/java/exercicios/Cap8/bombaimagem/5.png", // POR
+    };
+    
     public Exerc2(){
         initComp();
         definirEventos();
@@ -24,32 +31,36 @@ public class Exerc2 extends JFrame{
 
     private void initComp(){
         setTitle("bombastic 2 exercicio");
-        setSize(200,400);
         setLayout(null);
         String[] paises = new String[]{"GER","BRA","CHI","ESP","POR"};
         paisesBox = new JComboBox<>(paises);
-        paisesBox.setBounds(70,20,100,25);
+        paisesBox.setBounds(100,100,100,30);
         paisLabel = new JLabel("paises");
         //paisLabel.setBounds();
         fotoLabel = new JLabel();
-
-
-
+        fotoLabel.setPreferredSize(new Dimension(500,350));
         panel = new JPanel();
+        panel.setSize(700,400);
+
         add(panel);
+        panel.add(paisesBox);
+        panel.add(paisLabel);
+        panel.add(fotoLabel);
+        /*
         add(paisesBox);
         add(paisLabel);
-        add(fotoLabel);
+        add(fotoLabel);*/
         fotoLabel.setIcon(imageIcon);
     }
     private void definirEventos(){
         paisesBox.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                if(paisesBox.getSelectedIndex() == 1){
-                    imageIcon = new ImageIcon("C:/Users/gsgui/OneDrive - Univille/CURSOS/java/exercicios/Cap8/bombaimagem/1.png");
+                int indiceSelec = paisesBox.getSelectedIndex();
+                if(indiceSelec >=0 && indiceSelec < imagens.length){
+                    String bombaImagens = imagens[indiceSelec];
+                    ImageIcon imagemIcon = new ImageIcon(bombaImagens);
+                    fotoLabel.setIcon(imagemIcon); 
                 }
-                imageIcon = new ImageIcon(("C:/Users/gsgui/OneDrive - Univille/CURSOS/java/exercicios/Cap8/bombaimagem"+paisesBox.getSelectedItem()));
-                
             }
         });
     }
