@@ -1,15 +1,9 @@
 package exercicios.Cap8;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.event.ListSelectionListener;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-
 
 public class Exerc2 extends JFrame{
     private JLabel paisLabel,fotoLabel;
@@ -41,15 +35,10 @@ public class Exerc2 extends JFrame{
         fotoLabel.setPreferredSize(new Dimension(500,350));
         panel = new JPanel();
         panel.setSize(700,400);
-
         add(panel);
         panel.add(paisesBox);
         panel.add(paisLabel);
         panel.add(fotoLabel);
-        /*
-        add(paisesBox);
-        add(paisLabel);
-        add(fotoLabel);*/
         fotoLabel.setIcon(imageIcon);
     }
     private void definirEventos(){
