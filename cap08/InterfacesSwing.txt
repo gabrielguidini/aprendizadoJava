@@ -264,3 +264,16 @@ INCLUSÃO DE FRAMES INTERNOS -> Funciona da mesma forma que um JFrame só que in
                 setIconfiable(boolean)
                 setResizable(boolean)
                 show()
+
+INCLUSÃO DE GRID -> pela classe JTable permite que um componente possa mostrar e editar uma table 2d
+                 -> tem cerca de 130 metodos dessa classe
+                 -> os mais importantes:
+                        *JTable(int,int)
+                        *JTable(TableModel)
+                        *getColumnCount()
+                        *getColumnName(int)
+                        *getRowCount()
+                        *getSelectedColumns() / getSelectedRows() 
+                        *getValueAt(int,int)
+                        *selectAll()
+                        *setValueAt(Object, int, int)                   valor presente em objeto para a células para linhas e coluanas fornecidas

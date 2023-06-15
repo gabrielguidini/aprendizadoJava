@@ -1,0 +1,32 @@
+utilizando os receptores de eventos, junto das classes swing, eles são passiveis de controle dos objetos usados nas
+janelas da interface do usuário.
+
+CLASSES RECEPTORAS DE EVENTOS -> é necessário implementar uma interface, e essa interface é uma classe receptora de eventos.
+                              -> cada objeto pode implementar quantos receptores d eeventos forem necessários
+                              -> os principais são:
+            ActionListener -> Eventos de AÇÃO como o cluque do mouse sobre um botão.
+            AdjustmentListener -> Eventos de ajuste gerados por um componente ajustado (BARRA DE ROLAGEM JScrollBar)
+            DocumentListener -> Receber notificações quando ocorre alguma mudança no documento
+            FocusListener -> Gerado quando um componente recebe ou perde o foco, por exemplo, um campo texto recebe o foco
+            ItemListener -> Gerados quando o item selecionado de uma lista é mudado (usuário escolhe um item de List ou Combo)
+            KeyListener -> Refere-se aos eventos do teclado que ocorrem quando uma tecla é pressionada/quando é solta/etc.
+            MouseListener -> Eventos gerados pelo mouse quando é clicado.
+            MouseMotionListener -> movimentação do cursos sobre algum componente
+            WindowListener -> quando janelas são maximizadas,minimiazdas etc
+            ComponentListener -> refere qualquer componente de um frame, gerado quando o componente se torna visivel,oculto,movido,redimensionado.
+
+METODOS DE MANIPULAÇÃO DE EVENTOS -> para associar um evento a um objeto, por necessidade, se utiliza um metodo
+            addActionListener()         JButton,JCheckBox,JTextField e JRadioButton
+            addItemListener()           JButton,JCheckBox,JComboBox,JRadioButton
+            addDocumentListener()       JTextField, JTextArea
+            addFocusListener()          todos os componentes do swing
+            addAdjustmentListener()     JScrollBar
+            addMouseListener()          todos os componentes do swing
+            addMouseMotionListener()    todos os componentes do swing
+            addKeyListener()            todos os componentes do swing
+            addWindowListener()         JWindow e JFrame
+            addComponentListener()      todos os componentes do swing
+
+                *TODA VEZ QUE uma classe implementa as interfaces receptoras, se tem a necessidade de declarar os métodos que
+                realizarão o controle dos enventos em que, por obrigatoriedade, ActionListener necessita do método actionPerformed
+

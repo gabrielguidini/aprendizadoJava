@@ -10,7 +10,7 @@ public class GuiPrincipal extends JFrame{
     private JMenuBar mnBarra;
     private JMenu mnArquivo, mnExemplos, mnMrbombatic, mnPhotos;
     private JMenuItem miSair, miBotao, miBombastic,miCaixa,
-    miRadio,miAio,miIxi,miOlhaPedra,miTextoArea,miProgress;
+    miRadio,miAio,miIxi,miOlhaPedra,miTextoArea,miProgress,miGuiFrameInterno;
 
     public GuiPrincipal(){
         inicializarComponentes();
@@ -53,6 +53,7 @@ public class GuiPrincipal extends JFrame{
         miRadio = new JMenuItem("BombaPatch 2016");
         miProgress = new JMenuItem("ProgressBar");
         miTextoArea = new JMenuItem("JTextArea");
+        miGuiFrameInterno = new JMenuItem("Frame Interno");
 
 
         mnExemplos.add(miBotao);
@@ -63,6 +64,7 @@ public class GuiPrincipal extends JFrame{
 
         mnArquivo.add(miSair);
         mnArquivo.add(miBombastic);
+        mnArquivo.add(miGuiFrameInterno);
         
         mnMrbombatic.add(miAio);
         mnMrbombatic.add(miOlhaPedra);
@@ -159,7 +161,7 @@ public class GuiPrincipal extends JFrame{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Dimension tela = Toolkit.getDefaultToolkit().getScreenSize();
         frame.getContentPane().add(new GuiBotao());
-        frame.setBounds(50, 50, 600, 200);
+        frame.setBounds(50, 50, 600, 400);
         frame.setLocation ((tela.width - frame.getSize().width)/2,
                             (tela.height - frame.getSize().height)/2);
         frame.setVisible(true);
