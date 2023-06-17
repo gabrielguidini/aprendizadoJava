@@ -110,7 +110,7 @@ INCLUSÃO DE CAIXAS DE OPÇÕES -> criadas a partir de uma classe JCheckBox, que
                        4° setSelected(boolean)          Especifica o estado do checkbox: true marca a caixa, false desmarca
 
 INCLUSÃO DOS BOTÕES DE RÁDIO -> JRadioButton, permitem que só uma opção seja aceita pelo programa
-                             -> devem ser agrupados em ButtomGroups
+                             -> devem ser agrupados em ButtonGroups
                              -> o usuário pode só selecionar uma opção dentro dos grupos
                              -> caso seja feito em ButtomGroups diferentes, ele podera aceitar mais de um input
                              -> funciona da mesma forma de JCheckBox
