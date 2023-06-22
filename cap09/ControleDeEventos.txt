@@ -30,3 +30,14 @@ METODOS DE MANIPULAÇÃO DE EVENTOS -> para associar um evento a um objeto, por 
                 *TODA VEZ QUE uma classe implementa as interfaces receptoras, se tem a necessidade de declarar os métodos que
                 realizarão o controle dos enventos em que, por obrigatoriedade, ActionListener necessita do método actionPerformed
 
+            ActionListener / ActioEvent -> actionPerformed -> mouse clicado/tecla enter no componente alvo
+            AdjustmentListener / AdjustmentEvent -> adjustmentValueChanged -> valor de um componente é alterado
+            ComponentListener / ComponentEvent -> componentHidden, componentMoved, componentResized, componentShown
+            DocumentListener / DocumentEnvent -> insertUpdate, removeUpdate, changedUpdate
+            FocusListener / FocusEvent -> focusGained, focusLost -> componente recebe foco
+            KeyListener / KeyEvent -> keyPressed, keyRealeased, keyTyped (UNICODE type)
+            MouseListener / MouseEvent -> mousePressed, mouseClicked, mouseEntered, mouseExit, mouseReleased
+            MouseMotionListener / MouseEvent -> mouseMoved, mouseDragged
+            WindowListener / windowEvent -> windowClosing, windowClosed, windowActivated, windiwDeactivated, windowIconified, windowDeiconified, windowOpened
+                                            fechada        após fechada  ativada          desativada         minimizada       restaurada         aberta
+
